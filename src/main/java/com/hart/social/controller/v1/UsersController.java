@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,6 +39,11 @@ public class UsersController {
 
         user.setCreatedAt(String.valueOf(System.currentTimeMillis()));
         user.setUpdatedAt(String.valueOf(System.currentTimeMillis()));
+
+        String hashedPassword = BCrypt.hashpw(
+                user.getPassword(), BCrypt.gensalt(12));
+        user.setPassword(hashedPassword);
+
         usersRepository.save(user);
         return new ResponseEntity(user, HttpStatus.ACCEPTED);
     }
@@ -48,6 +54,11 @@ public class UsersController {
 
         user.setId(Long.valueOf(id));
         user.setUpdatedAt(String.valueOf(System.currentTimeMillis()));
+
+        String hashedPassword = BCrypt.hashpw(
+                user.getPassword(), BCrypt.gensalt(12));
+        user.setPassword(hashedPassword);
+
         usersRepository.save(user);
         return new ResponseEntity(user, HttpStatus.ACCEPTED);
     }

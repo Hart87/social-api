@@ -15,6 +15,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Random;
@@ -43,20 +44,24 @@ public class AuthenticationController {
     public ResponseEntity<?> authenticateFirstFactor(
             @RequestBody AuthenticationRequest authenticationRequest) throws Exception {
 
+
         //find the needed user
         User foundUser = usersRepository.findUserByEmail(
                 authenticationRequest.getUsername());
 
-        //compare passwords
-        if (foundUser.getPassword().equals(
-                authenticationRequest.getPassword())) {
 
+        //compare passwords
+        boolean verified = BCrypt.checkpw(
+                authenticationRequest.getPassword(), foundUser.getPassword());
+        logger.info(String.valueOf(verified));
+
+        if ( verified )  {
 
             try {
                 authenticationManager.authenticate(
                         new UsernamePasswordAuthenticationToken(
                                 authenticationRequest.getUsername(),
-                                authenticationRequest.getPassword())
+                                foundUser.getPassword())
                 );
             } catch (BadCredentialsException e) {
                 throw new Exception("Incorrect username and/or password", e);
