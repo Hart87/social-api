@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Social API - Users</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a href="./index.html" class="navbar-brand">Social API</a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto">
+                <a href="./users.html" class="nav-item nav-link active">Users</a>
+                <a href="posts.html" class="nav-item nav-link">Posts</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <br>
+    <h4>Base Route: /users</h4>
+    <br>
+    <h4>Users Schema</h4>
+    <kbd>Long : id - Primary Key</kbd><br>
+    <kbd>String : createdAt</kbd><br>
+    <kbd>String : updatedAt</kbd><br>
+    <kbd>String : email - Not Null</kbd><br>
+    <kbd>String : username - Not Null</kbd><br>
+    <kbd>String : password - Not Null</kbd><br>
+    <kbd>String : role - Not Null</kbd><br>
+    <br>
+    <h6>ID is generated automatically by Postgres. The times for createdAt & updatedAt are generated and set
+        in the  Users controller under the POST & PUT routes. Times are generated in current milliseconds</h6>
+    <br>
+    <h4>Users Routes</h4>
+    <h6> All routes accept and return <samp>JSON</samp> - no auth yet.</h6>
+    <!-- Info Alert -->
+    <div class="alert alert-success alert-dismissible fade show">
+        <strong>GET - "/users/{id}</strong> Get a User by ID number
+    </div>
+    <div class="alert alert-success alert-dismissible fade show">
+        <strong>GET - "/users/all</strong> Get all of the users
+    </div>
+    <div class="alert alert-warning alert-dismissible fade show">
+        <strong>POST - "/users</strong> Create a user. Takes in a request body of User
+    </div>
+    <div class="alert alert-info alert-dismissible fade show">
+        <strong>PUT - "/users/{id}</strong> Update a user. Takes in a request body of User and a Path Variable of a users ID
+    </div>
+    <div class="alert alert-danger alert-dismissible fade show">
+        <strong>DELETE - "/users/{id}</strong> Delete a user by ID number
+    </div>
+</div>
+<!-- Bootstrap JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

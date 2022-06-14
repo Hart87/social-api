@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Social API</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a href="#" class="navbar-brand">Social API</a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto">
+                <a href="./users.html" class="nav-item nav-link">Users</a>
+                <a href="./posts.html" class="nav-item nav-link">Posts</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <br>
+    <h4>About</h4>
+    <br>
+    <h6>The Social API is a mock social network API written in Java with Spring Boot.
+        Persistence is achieved by a Postgres Database ran in a docker container alongside the API.
+        It can easily be run with Docker Compose. Routes are available through the entity names in the navbar.</h6>
+    <br>
+    <h6><b>To run the project : </b> You will need Docker. <samp>CD</samp> into the <samp>src/main/docker</samp> folder.
+        In there is a <samp>Dockerfile</samp> for the server and a <samp>docker-compose.yml</samp>  to run the server
+        and the database together. While in the folder run the command :  <kbd>docker compose-up</kbd> and it should be
+        available at <b>http://localhost:8081</b>
+    <br>
+        <br>
+    <h6>This is an ongoing project and these docs will be updated accordingly. JWT Authentication and Caching with Redis will be added in the future.
+        Any pull request please submit on a separate branch.</h6>
+</div>
+<!-- Bootstrap JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
