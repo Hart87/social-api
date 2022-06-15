@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Social API - Auth</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a href="./index.html" class="navbar-brand">Social API</a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto">
+                <a href="./users.html" class="nav-item nav-link">Users</a>
+                <a href="posts.html" class="nav-item nav-link">Posts</a>
+                <a href="./auth.html" class="nav-item nav-link active">Auth</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <br>
+    <h4>Base Route: /auth</h4>
+    <br>
+
+    <h6>JWT has been implemented for all routes with the exception of <kbd>auth/login</kbd>
+        and the <samp>POST</samp> route of <kbd>/users</kbd></h6>. To login as a user send a
+    <samp>POST</samp> request with a JSON request body that has the parameters <kbd>username</kbd> and
+    <kbd>password</kbd>. Username would be your email. Password is plain text format. Do not send it hashed.
+    <br>
+    <br>
+    <h6>Passwords are stored hashed as BCrypt for security reasons. Do not send any passwords hashed,
+        your requests will fail. Send as plain text when sending them.</h6>
+    <br>
+    <h6>When sending a request to the server(outside of the routes that require authentication) include this in your header with the actual
+        token you've received when logging in. </h6>
+    <kbd>Authorization : Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdW-SHORTENED FOR CONTEXT - twukSlLw4X4kAOs9vnAvpE0 </kbd>
+    <br>
+    <br>
+    <H6>Role based authentication has been implemented. Basic, Management, and Admin. The default user role is Basic.</H6>
+    <br>
+    <br>
+    <h4>Auth Routes</h4>
+    <h6> All routes accept and return <samp>JSON</samp> </h6>
+    <br>
+    <!-- Info Alert -->
+    <div class="alert alert-warning alert-dismissible fade show">
+        <strong>POST - "/auth/login</strong> Login as a user. Return a JWT
+    </div>
+    <div class="alert alert-success alert-dismissible fade show">
+        <strong>GET - "/auth/validate</strong> returns a response code 202 if the JWT is valid.
+    </div>
+
+</div>
+<!-- Bootstrap JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

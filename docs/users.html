@@ -18,6 +18,7 @@
             <div class="navbar-nav ms-auto">
                 <a href="./users.html" class="nav-item nav-link active">Users</a>
                 <a href="posts.html" class="nav-item nav-link">Posts</a>
+                <a href="./auth.html" class="nav-item nav-link">Auth</a>
             </div>
         </div>
     </div>
@@ -38,8 +39,11 @@
     <h6>ID is generated automatically by Postgres. The times for createdAt & updatedAt are generated and set
         in the  Users controller under the POST & PUT routes. Times are generated in current milliseconds</h6>
     <br>
+    <h6>Presently there is no auth on <samp>POST</samp> of <kbd>/users</kbd>. Soon there will be an I.P. Address
+    based rate limiter on this route to prevent malicious actions against this route.</h6>
+    <br>
     <h4>Users Routes</h4>
-    <h6> All routes accept and return <samp>JSON</samp> - no auth yet.</h6>
+    <h6> All routes accept and return <samp>JSON</samp> </h6>
     <!-- Info Alert -->
     <div class="alert alert-success alert-dismissible fade show">
         <strong>GET - "/users/{id}</strong> Get a User by ID number

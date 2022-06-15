@@ -18,6 +18,7 @@
             <div class="navbar-nav ms-auto">
                 <a href="./users.html" class="nav-item nav-link">Users</a>
                 <a href="./posts.html" class="nav-item nav-link">Posts</a>
+                <a href="./posts.html" class="nav-item nav-link">Auth</a>
             </div>
         </div>
     </div>
@@ -28,7 +29,8 @@
     <br>
     <h6>The Social API is a mock social network API written in Java with Spring Boot.
         Persistence is achieved by a Postgres Database ran in a docker container alongside the API.
-        It can easily be run with Docker Compose. Routes are available through the entity names in the navbar.</h6>
+        It can easily be run with Docker Compose. Authentication is provided by the used of JWT(okens) which are good for one hour.
+        Routes are available through the entity names in the navbar.</h6>
     <br>
     <h6><b>To run the project : </b> You will need Docker. <samp>CD</samp> into the <samp>src/main/docker</samp> folder.
         In there is a <samp>Dockerfile</samp> for the server and a <samp>docker-compose.yml</samp>  to run the server
@@ -36,7 +38,7 @@
         available at <b>http://localhost:8081</b>
     <br>
         <br>
-    <h6>This is an ongoing project and these docs will be updated accordingly. JWT Authentication and Caching with Redis will be added in the future.
+    <h6>This is an ongoing project and these docs will be updated accordingly. Rate Limiting and Caching with Redis will be added in the future.
         Any pull request please submit on a separate branch.</h6>
 </div>
 <!-- Bootstrap JS Bundle with Popper -->
